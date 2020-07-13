@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"github.com/go-redis/redis/v8"
 	"github.com/patrickmn/go-cache"
-	"sso/defs"
+	"jwtService/defs"
 	"time"
 )
 

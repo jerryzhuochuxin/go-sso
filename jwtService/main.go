@@ -3,10 +3,10 @@ package main
 import (
 	"flag"
 	"github.com/gin-gonic/gin"
-	"sso/defs"
-	"sso/handlers"
-	"sso/middlewares"
-	"sso/services"
+	"jwtService/defs"
+	"jwtService/handlers"
+	"jwtService/middlewares"
+	"jwtService/services"
 )
 
 func main() {
@@ -21,6 +21,7 @@ func main() {
 
 	c.POST("api/getToken", handlers.GetToken)
 	c.POST("api/authToken", handlers.AuthToken)
+	c.GET("api/ping", handlers.GetPong)
 
 	if defs.JwtCache != defs.NO_USE_CACHE {
 		c.POST("api/deleteToken", handlers.DeleteToken)

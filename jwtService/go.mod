@@ -1,4 +1,4 @@
-module sso
+module jwtService
 
 go 1.14
 

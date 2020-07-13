@@ -3,8 +3,8 @@ package handlers
 import (
 	"github.com/gin-gonic/gin"
 	"io/ioutil"
-	"sso/defs"
-	"sso/services"
+	"jwtService/defs"
+	"jwtService/services"
 	"strconv"
 	"strings"
 )
@@ -80,4 +80,8 @@ func DeleteToken(c *gin.Context) {
 	}
 	services.DeleteKeyFromCache(tokenKey)
 	c.JSON(200, defs.GetSuccessHttpResult("删除成功"))
+}
+
+func GetPong(c *gin.Context) {
+	c.String(200, "pong")
 }

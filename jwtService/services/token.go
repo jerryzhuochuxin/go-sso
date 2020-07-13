@@ -4,7 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"github.com/dgrijalva/jwt-go"
-	"sso/defs"
+	"jwtService/defs"
 	"time"
 )
 

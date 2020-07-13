@@ -2,7 +2,7 @@ package middlewares
 
 import (
 	"github.com/gin-gonic/gin"
-	"sso/defs"
+	"jwtService/defs"
 )
 
 func UseJsonResult(c *gin.Context) {
