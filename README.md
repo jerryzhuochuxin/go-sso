@@ -6,7 +6,7 @@
 4. 添加了注册中心
 5. 添加了go语言版本的sdk
 
-### 快速开始 cd jwtService
-1. go build main.go
-2. main.exe # linux系统等使用: sh main
-3. main.exe -help 可以查看提示
+### 快速开始
+1. 运行build.cmd
+2. cd output\bin
+3. jwtService.exe 
