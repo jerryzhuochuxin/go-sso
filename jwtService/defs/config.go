@@ -8,6 +8,10 @@ var (
 	Cache    bool
 	RedisUrl string
 
+	RegisterCenterUrl string
+)
+
+var (
 	JwtCache ServerCache
 )
 

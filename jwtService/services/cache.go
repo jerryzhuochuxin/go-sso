@@ -23,7 +23,7 @@ func InitJwtCache() {
 		})
 
 		if _, err := redisCache.Ping(context.TODO()).Result(); err != nil {
-			fmt.Println("redis connect error")
+			panic("redis connect error")
 		}
 
 		return
