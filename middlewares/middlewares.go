@@ -10,7 +10,7 @@ func UseJsonResult(c *gin.Context) {
 	c.Next()
 }
 
-func UseCorss(c *gin.Context) {
+func UseCross(c *gin.Context) {
 	c.Header("access-control-allow-origin", "*")
 	c.Header("access-control-allow-headers", "*")
 	c.Header("access-control-allow-methods", "*")
