@@ -2,8 +2,8 @@ package services
 
 import (
 	"errors"
-	"fmt"
 	"github.com/dgrijalva/jwt-go"
+	"github.com/sirupsen/logrus"
 	"jwtService/defs"
 	"time"
 )
@@ -12,9 +12,11 @@ func GetToken(data []byte, key string, expires int) string {
 	claims := defs.JwtInfoClaims{Data: data}
 	claims.ExpiresAt = time.Now().Add(time.Duration(expires) * time.Minute).Unix()
 	token, err := jwt.NewWithClaims(jwt.SigningMethodHS256, &claims).SignedString([]byte(key))
+
 	if err != nil {
-		fmt.Println("getToken err")
+		logrus.Warn(err.Error())
 	}
+
 	return token
 }
 

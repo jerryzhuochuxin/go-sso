@@ -1,12 +1,9 @@
 package services
 
-import (
-	"github.com/jasonlvhit/gocron"
-	"registerService/defs"
-)
+import "github.com/jasonlvhit/gocron"
 
 func InitSchedule() {
-	gocron.Every(10).Seconds().Do(defs.CheckService)
+	gocron.Every(10).Seconds().Do(CheckService)
 	go func() {
 		<-gocron.Start()
 	}()

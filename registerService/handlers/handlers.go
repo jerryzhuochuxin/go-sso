@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"github.com/gin-gonic/gin"
-	"registerService/defs"
+	"registerService/services"
 )
 
 func AddService(c *gin.Context) {
@@ -10,7 +10,7 @@ func AddService(c *gin.Context) {
 	serviceType := c.Param("serviceType")
 	serviceName := c.Param("serviceName")
 
-	_, err := defs.AddService(serviceIp, serviceType, serviceName)
+	_, err := services.AddService(serviceIp, serviceType, serviceName)
 
 	if err != nil {
 		c.String(400, err.Error())
@@ -22,10 +22,10 @@ func AddService(c *gin.Context) {
 
 func GetServices(c *gin.Context) {
 	serviceType := c.Param("serviceType")
-	ipList := defs.SelectServicesByType(serviceType)
+	ipList := services.SelectServicesByType(serviceType)
 	c.JSON(200, ipList)
 }
 
 func GetAllServices(c *gin.Context) {
-	c.JSON(200, defs.SelectAllServices())
+	c.JSON(200, services.SelectAllServices())
 }
