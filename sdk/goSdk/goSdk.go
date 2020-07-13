@@ -33,7 +33,6 @@ func GetIpByServiceType(serviceType string) (string, error) {
 	return serviceIp, nil
 }
 
-// serviceType/xxx/yyy
 func GetResponse(method, url string, body io.Reader, options func(req *http.Request)) (*http.Response, error) {
 	serviceTypeEndIndex := strings.Index(url, "/")
 
