@@ -19,3 +19,13 @@ func AddService(c *gin.Context) {
 
 	c.String(200, "ok")
 }
+
+func GetServices(c *gin.Context) {
+	serviceType := c.Param("serviceType")
+	ipList := defs.SelectServicesByType(serviceType)
+	c.JSON(200, ipList)
+}
+
+func GetAllServices(c *gin.Context) {
+	c.JSON(200, defs.SelectAllServices())
+}

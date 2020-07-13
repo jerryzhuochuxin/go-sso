@@ -8,10 +8,10 @@ import (
 )
 
 type ServiceObj struct {
-	Name        string
-	Ip          string
-	ServiceType string
-	Status      ServiceStatus
+	Name        string        `json:"name"`
+	Ip          string        `json:"ip"`
+	ServiceType string        `json:"serviceType"`
+	Status      ServiceStatus `json:"-"`
 }
 
 type ServiceStatus int
@@ -54,4 +54,34 @@ func CheckService() {
 		}
 		return true
 	})
+}
+
+func SelectServicesByType(serviceType string) []string {
+	var result []string
+	ServiceMap.Range(func(k, v interface{}) bool {
+		service := v.(ServiceObj)
+		if service.ServiceType == serviceType {
+			result = append(result, service.Ip)
+		}
+		return true
+	})
+	return result
+}
+
+func SelectAllServices() map[string][]string {
+	result := map[string][]string{}
+	ServiceMap.Range(func(k, v interface{}) bool {
+		service := v.(ServiceObj)
+		serviceType := service.ServiceType
+
+		_, found := result[serviceType]
+		if !found {
+			result[serviceType] = []string{}
+		}
+
+		result[serviceType] = append(result[serviceType], service.Ip)
+
+		return true
+	})
+	return result
 }
